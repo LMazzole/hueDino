@@ -1,7 +1,7 @@
 #include "Client.h"
 #include "RestClient.h"
 
-//#define HTTP_DEBUG true
+#define HTTP_DEBUG true
 #ifdef HTTP_DEBUG
 #define HTTP_DEBUG_PRINT(string) (Serial.print(string))
 #endif
@@ -110,7 +110,7 @@ int RestClient::request(const char* method, String path, String body){
 
     HTTP_DEBUG_PRINT("HTTP: call getResponse\n");
     int statusCode = getResponse();
-    HTTP_DEBUG_PRINT("HTTP: return getResponse\n");
+    HTTP_DEBUG_PRINT("HTTP: return getResponse " + String(statusCode) +"\n");
 
     //cleanup
     // only stop if server disconnected. Otherwise you can
